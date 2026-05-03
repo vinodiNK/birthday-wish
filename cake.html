@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cake Time</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="center">
+
+    <div class="cake-card">
+
+
+        <div id="questionBox" class="popup" style="display: block;">
+            <p>Do you want to see your birthday cake?</p>
+            <div class="button-group">
+                <button onclick="goCake()">Yes 💖</button>
+                <button onclick="noCake()">No 😜</button>
+            </div>
+        </div>
+
+        <div id="cakeSection" class="fade" style="display: none; width: 100%;">
+            <p id="cakeMessage" class="cake-message"></p>
+            <img id="cakeImage" src="assets/images/cake.jpg" class="cake-img" alt="Birthday Cake" style="display: none;">
+
+            <div id="cakeControls" style="display: none;">
+                <button id="blowBtn" onclick="blowCandles()">Blow Candles 🕯️</button>
+                <p id="wishText"></p>
+            </div>
+            <button id="memoriesButton" onclick="nextMemories()">See Memories 💖</button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
