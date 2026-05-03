@@ -8,23 +8,45 @@
 
 <body>
 
-    <h1 class="center">Our Memories 💕</h1>
+    <h1 class="center">Your Memories </h1>
 
-    <!-- Memory Images -->
-    <div class="gallery">
-        <img src="assets/images/img1.jpg">
-        <img src="assets/images/img2.jpg">
-    </div>
 
     <!-- Memory Video -->
     <div class="center">
-        <h2>Special Moments 🎥</h2>
-        <video width="500" controls>
+        <video id="memoriesVideo" width="500" controls>
             <source src="assets/videos/memories.mp4" type="video/mp4">
         </video>
     </div>
 
+    <div class="center">
+        <button id="nextMessageButton" onclick="goMessage()">See Your Message 💌</button>
+    </div>
+
     <h2 class="center">Thank you for being in my life ❤️</h2>
+
+    <script>
+        function shouldAutoplay() {
+            return new URLSearchParams(window.location.search).get('autoplay') === 'true';
+        }
+
+        function goMessage() {
+            window.location.href = 'message.html';
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const video = document.getElementById('memoriesVideo');
+            if (video && shouldAutoplay()) {
+                video.play().catch(() => {
+                    // Autoplay may be blocked; keep controls visible for manual play.
+                });
+            }
+            if (video) {
+                video.addEventListener('ended', () => {
+                    window.location.href = 'message.html';
+                });
+            }
+        });
+    </script>
 
 </body>
 
