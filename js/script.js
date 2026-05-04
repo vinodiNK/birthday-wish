@@ -38,11 +38,24 @@ function createBalloons() {
 }
 
 function openSurprise() {
-    window.location.href = "video.html";
+    const giftBox = document.getElementById('giftBox');
+    giftBox.classList.add('opening');
+    
+    // Redirect after animation completes
+    setTimeout(() => {
+        window.location.href = "video.html";
+    }, 1000);
 }
 
 window.onload = function() {
     createBalloons();
+    // Auto-redirect after video ends
+    const video = document.getElementById('bdayVideo');
+    if (video) {
+        video.addEventListener('ended', function() {
+            window.location.href = "cake.html";
+        });
+    }
 }
 
 function nextPage() {
@@ -63,8 +76,7 @@ function noCake() {
     document.getElementById("cakeImage").style.display = "none";
     document.getElementById("cakeMessage").innerText =
         "Oh no! You don't have a cake right now.";
-    document.getElementById("wishText").innerText =
-        "No cake yet.";
+    
     document.getElementById("memoriesButton").style.display = "none";
 }
 

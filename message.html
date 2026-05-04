@@ -2,15 +2,17 @@
 <html>
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Special Birthday Message</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body class="center">
-    <div class="cake-card">
+    <div class="cake-card" id="messageContent">
         <h1 class="fade">Happy Birthday Chami... 🎂🎉</h1>
         <p class="cake-message">I hope your day is full of cake, smiles and all the happiness in the world! </p>
-        <p class="cake-message">In the past, I shared so many happy moments with you and you were always there for me, helping and supporting me when I needed it most 🤍 </p>
         <p class="cake-message">You have such a kind and beautiful heart. The way you help others and care for people is really amazing. Don’t ever change that keep it up. </p>
         <p class="cake-message">But… just a small reminder, be a little careful with people around you... even your best friends... </p>
         <p class="cake-message">Anywayyyy… enjoy your special day, eat lots of cake , smile more and stay the wonderful person you are. </p>
@@ -19,6 +21,17 @@
         <p class="cake-message"> Happy Birthday againnn..🎉️🎂</p>
         <p class="cake-message"> (From Vinoo)</p>
     </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const hasMessage = new URLSearchParams(window.location.search).get('hasMessage');
+            const messageContent = document.getElementById('messageContent');
+
+            if (hasMessage === 'no') {
+                messageContent.innerHTML = '<h1 class="fade">You have no message 💔</h1>';
+            }
+        });
+    </script>
 </body>
 
 </html>
