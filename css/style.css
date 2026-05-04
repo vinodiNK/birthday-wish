@@ -142,11 +142,51 @@ button:active {
     min-width: auto;
 }
 
+.side-home-button {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px 16px;
+    font-size: 14px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #ffd966, #f7b500);
+    color: #13243d;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+    z-index: 1002;
+}
+
+.side-home-button:hover {
+    transform: translateY(-50%) translateX(-2px);
+}
+
+.small-action {
+    padding: 8px 16px;
+    font-size: 14px;
+    margin-top: 16px;
+    min-width: auto;
+    text-transform: none;
+}
+
 @media (max-width: 768px) {
     #backButton {
         padding: 6px 12px;
         font-size: 12px;
         margin-top: 12px;
+    }
+    .small-action {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    .side-home-button {
+        right: 10px;
+        top: auto;
+        bottom: 20px;
+        transform: translateX(0);
+        width: calc(100% - 40px);
+        max-width: 220px;
     }
 }
 

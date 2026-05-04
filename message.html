@@ -32,9 +32,11 @@
             <p class="cake-message">Take care always, Chami Aiya... 💫 </p>
             <p class="cake-message"> Happy Birthday againnn..🎉️🎂</p>
             <p class="cake-message"> (From Vinoo)</p>
+            <button class="small-action" onclick="goHome()">Home Page</button>
         </div>
         <div id="noContent" style="display: none;">
             <h1 class="fade">You have not Special Birthday Message 🥲</h1>
+            <button class="small-action" onclick="goHome()">Home Page </button>
         </div>
     </div>
 
@@ -47,10 +49,11 @@
         }
 
         function noMessage() {
-            document.getElementById('messageOverlay').style.display = 'none';
-            document.getElementById('messageContent').style.display = 'flex';
-            document.getElementById('yesContent').style.display = 'none';
-            document.getElementById('noContent').style.display = 'block';
+            window.location.href = 'cake.html';
+        }
+
+        function goHome() {
+            window.location.href = 'index.html';
         }
     </script>
 </body>
