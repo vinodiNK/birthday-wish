@@ -78,6 +78,12 @@ function noCake() {
         "Oh no! You don't have a cake right now.";
     
     document.getElementById("memoriesButton").style.display = "none";
+    document.getElementById("backButton").style.display = "inline-block";
+}
+
+function goBack() {
+    document.getElementById("overlay").style.display = "flex";
+    document.getElementById("cakeSection").style.display = "none";
 }
 
 function nextMemories() {
