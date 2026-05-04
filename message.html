@@ -10,27 +10,48 @@
 </head>
 
 <body class="center">
-    <div class="cake-card" id="messageContent">
-        <h1 class="fade">Happy Birthday Chami... 🎂🎉</h1>
-        <p class="cake-message">I hope your day is full of cake, smiles and all the happiness in the world! </p>
-        <p class="cake-message">You have such a kind and beautiful heart. The way you help others and care for people is really amazing. Don’t ever change that keep it up. </p>
-        <p class="cake-message">But… just a small reminder, be a little careful with people around you... even your best friends... </p>
-        <p class="cake-message">Anywayyyy… enjoy your special day, eat lots of cake , smile more and stay the wonderful person you are. </p>
-        <p class="cake-message"> Wishing you all the best in life happiness, success and everything you’re hoping for🤝✨ </p>
-        <p class="cake-message">Take care always, Chami Aiya... 💫 </p>
-        <p class="cake-message"> Happy Birthday againnn..🎉️🎂</p>
-        <p class="cake-message"> (From Vinoo)</p>
+
+    <div id="messageOverlay" class="overlay" style="display: flex;">
+        <div class="popup" style="display: block;">
+            <h2>Do you like to see your Special Birthday Message?</h2>
+            <div class="button-group">
+                <button onclick="yesMessage()">Yes 😊</button>
+                <button onclick="noMessage()">No 😏</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="cake-card" id="messageContent" style="display: none;">
+        <div id="yesContent">
+            <h1 class="fade">Happy Birthday Chami... 🎂🎉</h1>
+            <p class="cake-message">I hope your day is full of cake, smiles and all the happiness in the world! </p>
+            <p class="cake-message">You have such a kind and beautiful heart. The way you help others and care for people is really amazing. Don't ever change that keep it up. </p>
+            <p class="cake-message">But… just a small reminder, be a little careful with people around you... even your best friends... </p>
+            <p class="cake-message">Anywayyyy… enjoy your special day, eat lots of cake , smile more and stay the wonderful person you are. </p>
+            <p class="cake-message"> Wishing you all the best in life happiness, success and everything you're hoping for🤝✨ </p>
+            <p class="cake-message">Take care always, Chami Aiya... 💫 </p>
+            <p class="cake-message"> Happy Birthday againnn..🎉️🎂</p>
+            <p class="cake-message"> (From Vinoo)</p>
+        </div>
+        <div id="noContent" style="display: none;">
+            <h1 class="fade">You have not Special Birthday Message 🥲</h1>
+        </div>
     </div>
 
     <script>
-        window.addEventListener('DOMContentLoaded', () => {
-            const hasMessage = new URLSearchParams(window.location.search).get('hasMessage');
-            const messageContent = document.getElementById('messageContent');
+        function yesMessage() {
+            document.getElementById('messageOverlay').style.display = 'none';
+            document.getElementById('messageContent').style.display = 'flex';
+            document.getElementById('yesContent').style.display = 'block';
+            document.getElementById('noContent').style.display = 'none';
+        }
 
-            if (hasMessage === 'no') {
-                messageContent.innerHTML = '<h1 class="fade">You have no message 💔</h1>';
-            }
-        });
+        function noMessage() {
+            document.getElementById('messageOverlay').style.display = 'none';
+            document.getElementById('messageContent').style.display = 'flex';
+            document.getElementById('yesContent').style.display = 'none';
+            document.getElementById('noContent').style.display = 'block';
+        }
     </script>
 </body>
 
