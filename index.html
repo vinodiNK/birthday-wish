@@ -13,10 +13,30 @@
 
 
 
-    <div class="gift-box" id="giftBox">
+    <!-- Birthday Question Section -->
+    <div class="birthday-question" id="birthdayQuestion">
+        <div class="card">
+            <h1>Is today your birthday?</h1>
+            <div class="button-group">
+                <button onclick="handleYes()">Yes</button>
+                <button onclick="handleNo()">No</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gift Box Section (shown when Yes) -->
+    <div class="gift-box" id="giftBox" style="display: none;">
         <div class="card">
             <h1>I made something special for you </h1>
             <button onclick="openSurprise()">Open </button>
+        </div>
+    </div>
+
+    <!-- No Birthday Section (shown when No) -->
+    <div class="no-birthday" id="noBirthday" style="display: none;">
+        <div class="card">
+            <h1>You don't have anything special</h1>
+            <button onclick="goBackToBirthday()">Back</button>
         </div>
     </div>
 

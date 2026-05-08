@@ -37,6 +37,23 @@ function createBalloons() {
     }
 }
 
+function handleYes() {
+    document.getElementById('birthdayQuestion').style.display = 'none';
+    document.getElementById('giftBox').style.display = 'block';
+    createBalloons();
+}
+
+function handleNo() {
+    document.getElementById('birthdayQuestion').style.display = 'none';
+    document.getElementById('noBirthday').style.display = 'block';
+}
+
+function goBackToBirthday() {
+    document.getElementById('birthdayQuestion').style.display = 'block';
+    document.getElementById('giftBox').style.display = 'none';
+    document.getElementById('noBirthday').style.display = 'none';
+}
+
 function openSurprise() {
     const giftBox = document.getElementById('giftBox');
     giftBox.classList.add('opening');
@@ -48,7 +65,6 @@ function openSurprise() {
 }
 
 window.onload = function() {
-    createBalloons();
     // Auto-redirect after video ends
     const video = document.getElementById('bdayVideo');
     if (video) {
