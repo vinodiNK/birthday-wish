@@ -225,12 +225,13 @@
         .button-group {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: nowrap;
         }
         
         button {
-            padding: 16px 45px;
+            padding: 16px 35px;
             border: none;
             border-radius: 50px;
             background: linear-gradient(135deg, #4fa2ff, #0066ff);
@@ -256,7 +257,7 @@
                 font-size: 2rem;
             }
             .card {
-                padding: 40px 25px;
+                padding: 40px 20px;
             }
             .balloon {
                 width: 60px;
@@ -268,8 +269,16 @@
                 width: 100px;
                 right: -10px;
             }
+            /* Keep buttons in one line */
+            .button-group {
+                flex-wrap: nowrap;
+                gap: 10px;
+            }
             button {
-                width: 100%;
+                width: auto;
+                flex: 1;
+                padding: 14px 10px;
+                font-size: 1rem;
             }
         }
     </style>
@@ -333,8 +342,6 @@
             <button onclick="openSurprise()">
                 Open ✨
             </button>
-
-
 
         </div>
 
