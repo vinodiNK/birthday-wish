@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Birthday Surprise</title>
 
+    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
@@ -17,20 +18,20 @@
         
         body {
             font-family: 'Poppins', sans-serif;
-            min-height: 100vh;
+            height: 100vh;
+            overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
             background: linear-gradient(135deg, #dcecff, #c7e0ff, #eaf4ff);
-            overflow-x: hidden;
-            padding: 16px;
+            position: relative;
         }
-        /* Background circles */
+        /* Floating background circles */
         
         .circle {
             position: absolute;
             border-radius: 50%;
-            opacity: 0.25;
+            opacity: 0.35;
             animation: float 6s infinite ease-in-out;
         }
         
@@ -38,16 +39,16 @@
             width: 120px;
             height: 120px;
             background: #8ec5ff;
-            top: 5%;
-            left: 5%;
+            top: 8%;
+            left: 8%;
         }
         
         .circle2 {
             width: 80px;
             height: 80px;
             background: #ffd6e7;
-            bottom: 8%;
-            right: 8%;
+            bottom: 10%;
+            right: 10%;
             animation-delay: 1s;
         }
         
@@ -55,8 +56,8 @@
             width: 60px;
             height: 60px;
             background: #fff3a3;
-            top: 10%;
-            right: 15%;
+            top: 12%;
+            right: 18%;
             animation-delay: 2s;
         }
         
@@ -64,8 +65,8 @@
             width: 100px;
             height: 100px;
             background: #b8f7d4;
-            bottom: 12%;
-            left: 10%;
+            bottom: 15%;
+            left: 12%;
             animation-delay: 3s;
         }
         
@@ -82,10 +83,10 @@
         
         .confetti {
             position: absolute;
-            width: 10px;
-            height: 10px;
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
             top: -20px;
-            border-radius: 2px;
             animation: fall linear infinite;
         }
         
@@ -127,24 +128,26 @@
                 transform: translateY(110vh) rotate(360deg);
             }
         }
-        /* Card */
+        /* Main Card */
         
         .card {
-            width: min(92%, 650px);
-            background: rgba(255, 255, 255, 0.3);
+            width: 90%;
+            max-width: 650px;
+            background: rgba(255, 255, 255, 0.28);
             backdrop-filter: blur(15px);
-            border-radius: 24px;
-            padding: clamp(20px, 5vw, 50px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 35px;
+            padding: 50px 35px;
             text-align: center;
             position: relative;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.05);
-            animation: popup 0.7s ease;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            animation: popup 0.8s ease;
         }
         
         @keyframes popup {
             from {
                 opacity: 0;
-                transform: scale(0.8);
+                transform: scale(0.7);
             }
             to {
                 opacity: 1;
@@ -153,10 +156,9 @@
         }
         
         h1 {
-            font-size: clamp(1.6rem, 4vw, 2.8rem);
-            font-weight: 600;
+            font-size: 3rem;
+            line-height: 1.4;
             color: #16356d;
-            line-height: 1.3;
             margin-bottom: 25px;
         }
         
@@ -165,32 +167,45 @@
         }
         /* Images */
         
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-        
         .balloon {
-            width: clamp(50px, 12vw, 90px);
+            width: 90px;
             position: absolute;
-            animation: float 4s infinite ease-in-out;
+            animation: balloonFloat 4s infinite ease-in-out;
         }
         
         .balloon-left {
-            left: -10px;
-            top: 20px;
+            left: -35px;
+            top: 40px;
         }
         
         .balloon-right {
-            right: -10px;
-            top: 20px;
+            right: -35px;
+            top: 40px;
             animation-delay: 1s;
         }
         
         .gift-image {
-            width: clamp(80px, 18vw, 130px);
+            width: 130px;
             margin-bottom: 20px;
             animation: shake 2s infinite;
+        }
+        
+        .cake-image {
+            width: 150px;
+            position: absolute;
+            bottom: -25px;
+            right: -20px;
+            animation: float 5s infinite ease-in-out;
+        }
+        
+        @keyframes balloonFloat {
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
         }
         
         @keyframes shake {
@@ -205,69 +220,85 @@
                 transform: rotate(-5deg);
             }
         }
-        /* Buttons (Material style) */
+        /* Buttons */
         
         .button-group {
             display: flex;
             justify-content: center;
-            gap: 12px;
+            gap: 20px;
             flex-wrap: wrap;
-            margin-top: 10px;
         }
         
         button {
-            padding: 14px 24px;
+            padding: 16px 45px;
             border: none;
-            border-radius: 14px;
+            border-radius: 50px;
             background: linear-gradient(135deg, #4fa2ff, #0066ff);
             color: white;
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
-            min-width: 140px;
-            transition: 0.3s ease;
-            box-shadow: 0 10px 20px rgba(0, 102, 255, 0.2);
+            transition: 0.3s;
+            box-shadow: 0 10px 25px rgba(0, 102, 255, 0.25);
         }
         
         button:hover {
-            transform: translateY(-3px);
-        }
-        /* Mobile */
-        
-        @media (max-width: 480px) {
-            .button-group {
-                flex-direction: column;
-            }
-            button {
-                width: 100%;
-            }
+            transform: translateY(-5px) scale(1.05);
         }
         
         .hidden {
             display: none;
+        }
+        /* Mobile */
+        
+        @media(max-width:768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .card {
+                padding: 40px 25px;
+            }
+            .balloon {
+                width: 60px;
+            }
+            .gift-image {
+                width: 100px;
+            }
+            .cake-image {
+                width: 100px;
+                right: -10px;
+            }
+            button {
+                width: 100%;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Background -->
+    <!-- Background Decorations -->
+
     <div class="circle circle1"></div>
     <div class="circle circle2"></div>
     <div class="circle circle3"></div>
     <div class="circle circle4"></div>
 
     <!-- Confetti -->
+
     <div class="confetti"></div>
     <div class="confetti"></div>
     <div class="confetti"></div>
     <div class="confetti"></div>
     <div class="confetti"></div>
 
-    <!-- QUESTION -->
+    <!-- Birthday Question -->
+
     <div id="birthdayQuestion">
+
         <div class="card">
 
+            <!-- Balloons -->
             <img src="assets/balloon.png" class="balloon balloon-left">
             <img src="assets/balloon.png" class="balloon balloon-right">
 
@@ -282,12 +313,16 @@
             </div>
 
         </div>
+
     </div>
 
-    <!-- GIFT -->
+    <!-- Gift Section -->
+
     <div id="giftBox" class="hidden">
+
         <div class="card">
 
+            <!-- Gift Image -->
             <img src="assets/gift.png" class="gift-image">
 
             <h1>
@@ -295,17 +330,32 @@
                 <span class="highlight">special for you</span>
             </h1>
 
-            <button onclick="openSurprise()">Open ✨</button>
+            <button onclick="openSurprise()">
+                Open ✨
+            </button>
+
+
 
         </div>
+
     </div>
 
-    <!-- NO -->
+    <!-- No Birthday -->
+
     <div id="noBirthday" class="hidden">
+
         <div class="card">
-            <h1>There’s no surprise for you today 🙃</h1>
-            <button onclick="goBackToBirthday()">Back</button>
+
+            <h1>
+                <br> There’s no surprise for you today 🙃
+            </h1>
+
+            <button onclick="goBackToBirthday()">
+                Back
+            </button>
+
         </div>
+
     </div>
 
     <script>
@@ -325,6 +375,9 @@
         }
 
         function openSurprise() {
+
+            // Add your birthday surprise page link here
+
             window.location.href = "video.html";
         }
     </script>
