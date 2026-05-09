@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Birthday Cake</title>
 
-    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
@@ -24,14 +23,13 @@
             justify-content: center;
             align-items: center;
             background: linear-gradient(135deg, #dcecff, #c7e0ff, #eaf4ff);
-            position: relative;
         }
-        /* Floating background circles */
+        /* Floating circles */
         
         .circle {
             position: absolute;
             border-radius: 50%;
-            opacity: 0.35;
+            opacity: 0.3;
             animation: float 6s infinite ease-in-out;
         }
         
@@ -79,146 +77,30 @@
                 transform: translateY(-18px);
             }
         }
-        /* Background Glow */
-        
-        .bg-glow {
-            position: absolute;
-            width: 700px;
-            height: 700px;
-            background: rgba(128, 0, 255, 0.18);
-            border-radius: 50%;
-            filter: blur(100px);
-            z-index: 0;
-        }
-        /* Floating Confetti */
-        
-        .confetti {
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            border-radius: 3px;
-            animation: fall linear infinite;
-        }
-        
-        .confetti:nth-child(1) {
-            left: 10%;
-            background: #ff4ecd;
-            animation-duration: 6s;
-        }
-        
-        .confetti:nth-child(2) {
-            left: 30%;
-            background: #00e5ff;
-            animation-duration: 8s;
-        }
-        
-        .confetti:nth-child(3) {
-            left: 50%;
-            background: #ffd54f;
-            animation-duration: 7s;
-        }
-        
-        .confetti:nth-child(4) {
-            left: 70%;
-            background: #ffffff;
-            animation-duration: 5s;
-        }
-        
-        .confetti:nth-child(5) {
-            left: 85%;
-            background: #b388ff;
-            animation-duration: 9s;
-        }
-        
-        @keyframes fall {
-            0% {
-                transform: translateY(-20px) rotate(0deg);
-            }
-            100% {
-                transform: translateY(110vh) rotate(360deg);
-            }
-        }
-        /* Balloons */
-        
-        .balloon {
-            position: absolute;
-            width: 110px;
-            animation: float 4s infinite ease-in-out;
-        }
-        
-        .left-balloon {
-            left: 8%;
-            bottom: 15%;
-        }
-        
-        .right-balloon {
-            right: 8%;
-            bottom: 15%;
-            animation-delay: 1s;
-        }
-        
-        @keyframes float {
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-        /* Popup Card */
+        /* POPUP */
         
         .popup {
             width: 90%;
             max-width: 760px;
-            background: rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(18px);
             border-radius: 35px;
             padding: 50px 40px;
             text-align: center;
-            position: relative;
-            z-index: 2;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            animation: popup 0.8s ease;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
         }
-        
-        @keyframes popup {
-            from {
-                opacity: 0;
-                transform: scale(0.7);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        /* Cake */
         
         .cake-icon {
-            width: 160px;
-            margin-top: -130px;
-            margin-bottom: 20px;
-            animation: cakeFloat 3s infinite ease-in-out;
-            filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.4));
-        }
-        
-        @keyframes cakeFloat {
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-12px);
-            }
+            width: 120px;
+            margin-bottom: 15px;
+            animation: float 3s ease-in-out infinite;
         }
         
         h1 {
-            color: white;
+            color: rgb(82, 101, 224);
             font-size: 3rem;
-            line-height: 1.4;
             margin-bottom: 35px;
-            font-weight: 700;
+            line-height: 1.2;
         }
         
         .highlight {
@@ -226,7 +108,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        /* Buttons */
+        /* BUTTONS */
         
         .button-group {
             display: flex;
@@ -237,51 +119,117 @@
         
         button {
             border: none;
-            padding: 18px 50px;
+            padding: 16px 45px;
             border-radius: 60px;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 600;
             cursor: pointer;
-            transition: 0.3s;
             color: white;
-            min-width: 220px;
+            transition: 0.3s;
         }
         
         .yes-btn {
             background: linear-gradient(135deg, #3366ff, #7b4dff);
-            box-shadow: 0 10px 25px rgba(51, 102, 255, 0.35);
         }
         
         .no-btn {
             background: linear-gradient(135deg, #ff5ea8, #ff2d7a);
-            box-shadow: 0 10px 25px rgba(255, 45, 122, 0.35);
         }
         
         button:hover {
             transform: translateY(-5px) scale(1.05);
         }
-        /* Cake Section */
+        /* CAKE SECTION */
         
         .cake-section {
             display: none;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            z-index: 2;
-            position: relative;
         }
         
         .cake-img {
             width: 320px;
-            border-radius: 25px;
             margin-top: 25px;
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
-            animation: zoom 1s ease;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
         
-        @keyframes zoom {
+        .cake-message {
+            color: #111;
+            font-size: 2rem;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+        /* MEMORIES BUTTON */
+        
+        .memory-btn {
+            margin-top: 25px;
+            padding: 14px 40px;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .memory-btn:hover {
+            transform: scale(1.08);
+        }
+        /* NO CAKE SCREEN */
+        
+        .no-cake-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        /* CARD */
+        
+        .no-card {
+            background: linear-gradient(135deg, #6a5acd, #8a7fff);
+            padding: 40px 30px;
+            border-radius: 25px;
+            text-align: center;
+            width: 90%;
+            max-width: 420px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            animation: popIn 0.5s ease;
+        }
+        
+        .no-card h1 {
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        .no-card button {
+            padding: 12px 35px;
+            border: none;
+            border-radius: 50px;
+            background: white;
+            color: #6a5acd;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .no-card button:hover {
+            transform: scale(1.1);
+        }
+        
+        @keyframes popIn {
             from {
-                transform: scale(0.5);
+                transform: scale(0.6);
                 opacity: 0;
             }
             to {
@@ -289,40 +237,17 @@
                 opacity: 1;
             }
         }
+        /* MOBILE */
         
-        .cake-message {
-            color: rgb(17, 16, 16);
-            font-size: 2rem;
-            margin-top: 20px;
-            font-weight: 600;
-        }
-        
-        .memory-btn {
-            margin-top: 30px;
-            background: linear-gradient(135deg, #00c6ff, #0072ff);
-        }
-        /* Mobile */
-        
-        @media(max-width:768px) {
+        @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
-            }
-            .cake-icon {
-                width: 120px;
-                margin-top: -90px;
             }
             .cake-img {
                 width: 90%;
             }
             button {
                 width: 100%;
-                min-width: unset;
-            }
-            .popup {
-                padding: 40px 25px;
-            }
-            .balloon {
-                width: 70px;
             }
         }
     </style>
@@ -330,29 +255,15 @@
 
 <body>
 
-    <!-- Floating background circles -->
+    <!-- BACKGROUND -->
     <div class="circle circle1"></div>
     <div class="circle circle2"></div>
     <div class="circle circle3"></div>
     <div class="circle circle4"></div>
 
-    <!-- Background Glow -->
-    <div class="bg-glow"></div>
-
-    <!-- Confetti -->
-    <div class="confetti"></div>
-    <div class="confetti"></div>
-    <div class="confetti"></div>
-    <div class="confetti"></div>
-    <div class="confetti"></div>
-
-
-
-    <!-- Question Popup -->
-
+    <!-- QUESTION -->
     <div class="popup" id="questionBox">
 
-        <!-- Cake Icon -->
         <img src="assets/cake.png" class="cake-icon">
 
         <h1>
@@ -360,52 +271,49 @@
         </h1>
 
         <div class="button-group">
-            <button class="yes-btn" onclick="goCake()">
-                😇 Yes
-            </button>
-
-            <button class="no-btn" onclick="noCake()">
-                😜 No
-            </button>
+            <button class="yes-btn" onclick="goCake()">😇 Yes</button>
+            <button class="no-btn" onclick="noCake()">😜 No</button>
         </div>
 
     </div>
 
-    <!-- Cake Section -->
-
+    <!-- CAKE -->
     <div class="cake-section" id="cakeSection">
 
-        <p id="cakeMessage" class="cake-message">
-            This cake is specially for you!🎂
-        </p>
+        <p class="cake-message">This cake is specially for you! 🎂</p>
 
-        <img id="cakeImage" src="assets/images/cake.jpg" class="cake-img" alt="Birthday Cake">
+        <img src="assets/images/cake.jpg" class="cake-img">
 
-
-
+        <!-- MEMORIES BUTTON -->
         <button class="memory-btn" onclick="nextMemories()">
             See Memories 🤩
         </button>
 
     </div>
 
+    <!-- NO CAKE SCREEN -->
+    <div class="no-cake-screen" id="noCakeScreen">
+        <div class="no-card">
+            <h1>😜 You have no cake today!</h1>
+            <button onclick="closeNoCake()">Go Back</button>
+        </div>
+    </div>
+
     <script>
         function goCake() {
-
             document.getElementById("questionBox").style.display = "none";
-
             document.getElementById("cakeSection").style.display = "flex";
         }
 
         function noCake() {
+            document.getElementById("noCakeScreen").style.display = "flex";
+        }
 
-            alert("😜 Okay! No cake for you today.");
+        function closeNoCake() {
+            document.getElementById("noCakeScreen").style.display = "none";
         }
 
         function nextMemories() {
-
-            // Change page here
-
             window.location.href = "memories.html";
         }
     </script>
