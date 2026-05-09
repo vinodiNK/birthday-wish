@@ -7,6 +7,25 @@
     <title>Happy Birthday</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #dcecff, #c7e0ff, #eaf4ff);
+        }
+        
+        #bdayVideo {
+            width: 90%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+    </style>
 </head>
 
 <body class="center">
@@ -15,9 +34,7 @@
     <div class="circle circle3"></div>
     <div class="circle circle4"></div>
 
-
-
-    <video id="bdayVideo" width="600" autoplay controls>
+    <video id="bdayVideo" autoplay controls>
         <source src="assets/videos/0509.mp4" type="video/mp4">
     </video>
 
