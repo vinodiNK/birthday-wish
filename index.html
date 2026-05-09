@@ -1,46 +1,388 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Birthday Surprise</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #dcecff, #c7e0ff, #eaf4ff);
+            position: relative;
+        }
+        /* Floating background circles */
+        
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.35;
+            animation: float 6s infinite ease-in-out;
+        }
+        
+        .circle1 {
+            width: 120px;
+            height: 120px;
+            background: #8ec5ff;
+            top: 8%;
+            left: 8%;
+        }
+        
+        .circle2 {
+            width: 80px;
+            height: 80px;
+            background: #ffd6e7;
+            bottom: 10%;
+            right: 10%;
+            animation-delay: 1s;
+        }
+        
+        .circle3 {
+            width: 60px;
+            height: 60px;
+            background: #fff3a3;
+            top: 12%;
+            right: 18%;
+            animation-delay: 2s;
+        }
+        
+        .circle4 {
+            width: 100px;
+            height: 100px;
+            background: #b8f7d4;
+            bottom: 15%;
+            left: 12%;
+            animation-delay: 3s;
+        }
+        
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-18px);
+            }
+        }
+        /* Confetti */
+        
+        .confetti {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+            top: -20px;
+            animation: fall linear infinite;
+        }
+        
+        .confetti:nth-child(1) {
+            left: 10%;
+            background: #ff7eb3;
+            animation-duration: 6s;
+        }
+        
+        .confetti:nth-child(2) {
+            left: 25%;
+            background: #7afcff;
+            animation-duration: 8s;
+        }
+        
+        .confetti:nth-child(3) {
+            left: 40%;
+            background: #fff3a3;
+            animation-duration: 5s;
+        }
+        
+        .confetti:nth-child(4) {
+            left: 60%;
+            background: #ffffff;
+            animation-duration: 7s;
+        }
+        
+        .confetti:nth-child(5) {
+            left: 80%;
+            background: #cdb4ff;
+            animation-duration: 6s;
+        }
+        
+        @keyframes fall {
+            0% {
+                transform: translateY(-20px) rotate(0deg);
+            }
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+            }
+        }
+        /* Main Card */
+        
+        .card {
+            width: 90%;
+            max-width: 650px;
+            background: rgba(255, 255, 255, 0.28);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 35px;
+            padding: 50px 35px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            animation: popup 0.8s ease;
+        }
+        
+        @keyframes popup {
+            from {
+                opacity: 0;
+                transform: scale(0.7);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        h1 {
+            font-size: 3rem;
+            line-height: 1.4;
+            color: #16356d;
+            margin-bottom: 25px;
+        }
+        
+        .highlight {
+            color: #2979ff;
+        }
+        /* Images */
+        
+        .balloon {
+            width: 90px;
+            position: absolute;
+            animation: balloonFloat 4s infinite ease-in-out;
+        }
+        
+        .balloon-left {
+            left: -35px;
+            top: 40px;
+        }
+        
+        .balloon-right {
+            right: -35px;
+            top: 40px;
+            animation-delay: 1s;
+        }
+        
+        .gift-image {
+            width: 130px;
+            margin-bottom: 20px;
+            animation: shake 2s infinite;
+        }
+        
+        .cake-image {
+            width: 150px;
+            position: absolute;
+            bottom: -25px;
+            right: -20px;
+            animation: float 5s infinite ease-in-out;
+        }
+        
+        @keyframes balloonFloat {
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+        
+        @keyframes shake {
+            0%,
+            100% {
+                transform: rotate(0deg);
+            }
+            25% {
+                transform: rotate(5deg);
+            }
+            75% {
+                transform: rotate(-5deg);
+            }
+        }
+        /* Buttons */
+        
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        button {
+            padding: 16px 45px;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #4fa2ff, #0066ff);
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 10px 25px rgba(0, 102, 255, 0.25);
+        }
+        
+        button:hover {
+            transform: translateY(-5px) scale(1.05);
+        }
+        
+        .hidden {
+            display: none;
+        }
+        /* Mobile */
+        
+        @media(max-width:768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .card {
+                padding: 40px 25px;
+            }
+            .balloon {
+                width: 60px;
+            }
+            .gift-image {
+                width: 100px;
+            }
+            .cake-image {
+                width: 100px;
+                right: -10px;
+            }
+            button {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 
-<body class="center">
+<body>
 
+    <!-- Background Decorations -->
 
+    <div class="circle circle1"></div>
+    <div class="circle circle2"></div>
+    <div class="circle circle3"></div>
+    <div class="circle circle4"></div>
 
-    <!-- Birthday Question Section -->
-    <div class="birthday-question" id="birthdayQuestion">
+    <!-- Confetti -->
+
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+
+    <!-- Birthday Question -->
+
+    <div id="birthdayQuestion">
+
         <div class="card">
-            <h1>Is today your birthday?</h1>
+
+            <!-- Balloons -->
+            <img src="assets/balloon.png" class="balloon balloon-left">
+            <img src="assets/balloon.png" class="balloon balloon-right">
+
+            <h1>
+                Is Today <br>
+                <span class="highlight">Your Birthday?</span>
+            </h1>
+
             <div class="button-group">
-                <button onclick="handleYes()">Yes</button>
-                <button onclick="handleNo()">No</button>
+                <button onclick="handleYes()">Yes 🎂</button>
+                <button onclick="handleNo()">No 😴</button>
             </div>
+
         </div>
+
     </div>
 
-    <!-- Gift Box Section (shown when Yes) -->
-    <div class="gift-box" id="giftBox" style="display: none;">
+    <!-- Gift Section -->
+
+    <div id="giftBox" class="hidden">
+
         <div class="card">
-            <h1>I made something special for you 🤗 </h1>
-            <button onclick="openSurprise()">Open </button>
+
+            <!-- Gift Image -->
+            <img src="assets/gift.png" class="gift-image">
+
+            <h1>
+                I made something <br>
+                <span class="highlight">special for you</span>
+            </h1>
+
+            <button onclick="openSurprise()">
+                Open Surprise ✨
+            </button>
+
+            <!-- Cake -->
+            <img src="assets/cake.png" class="cake-image">
+
         </div>
+
     </div>
 
-    <!-- No Birthday Section (shown when No) -->
-    <div class="no-birthday" id="noBirthday" style="display: none;">
+    <!-- No Birthday -->
+
+    <div id="noBirthday" class="hidden">
+
         <div class="card">
-            <h1>You don't have anything special 🥱</h1>
-            <button onclick="goBackToBirthday()">Back</button>
+
+            <h1>
+                😅 Oops... <br> No Birthday Today
+            </h1>
+
+            <button onclick="goBackToBirthday()">
+                Back
+            </button>
+
         </div>
+
     </div>
 
-    <script src="js/script.js"></script>
+    <script>
+        function handleYes() {
+            document.getElementById("birthdayQuestion").classList.add("hidden");
+            document.getElementById("giftBox").classList.remove("hidden");
+        }
+
+        function handleNo() {
+            document.getElementById("birthdayQuestion").classList.add("hidden");
+            document.getElementById("noBirthday").classList.remove("hidden");
+        }
+
+        function goBackToBirthday() {
+            document.getElementById("noBirthday").classList.add("hidden");
+            document.getElementById("birthdayQuestion").classList.remove("hidden");
+        }
+
+        function openSurprise() {
+
+            // Add your birthday surprise page link here
+
+            window.location.href = "video.html";
+        }
+    </script>
+
 </body>
 
 </html>
