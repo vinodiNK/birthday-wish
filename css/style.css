@@ -10,10 +10,65 @@ body {
     margin: 0;
     min-height: 100vh;
     font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(180deg, #d9efff 0%, #b3d8ff 35%, #eaf5ff 100%);
+    background: linear-gradient(135deg, #dcecff, #c7e0ff, #eaf4ff);
     color: #1d3358;
     overflow-x: hidden;
     position: relative;
+}
+
+
+/* Floating background circles */
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.35;
+    animation: float 6s infinite ease-in-out;
+}
+
+.circle1 {
+    width: 120px;
+    height: 120px;
+    background: #8ec5ff;
+    top: 8%;
+    left: 8%;
+}
+
+.circle2 {
+    width: 80px;
+    height: 80px;
+    background: #ffd6e7;
+    bottom: 10%;
+    right: 10%;
+    animation-delay: 1s;
+}
+
+.circle3 {
+    width: 60px;
+    height: 60px;
+    background: #fff3a3;
+    top: 12%;
+    right: 18%;
+    animation-delay: 2s;
+}
+
+.circle4 {
+    width: 100px;
+    height: 100px;
+    background: #b8f7d4;
+    bottom: 15%;
+    left: 12%;
+    animation-delay: 3s;
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-18px);
+    }
 }
 
 body::before,

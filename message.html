@@ -22,8 +22,61 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: radial-gradient(circle at top, #22004d 0%, #09001f 45%, #020010 100%);
+            background: linear-gradient(135deg, #dcecff, #c7e0ff, #eaf4ff);
             position: relative;
+        }
+        /* Floating background circles */
+        
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.35;
+            animation: float 6s infinite ease-in-out;
+        }
+        
+        .circle1 {
+            width: 120px;
+            height: 120px;
+            background: #8ec5ff;
+            top: 8%;
+            left: 8%;
+        }
+        
+        .circle2 {
+            width: 80px;
+            height: 80px;
+            background: #ffd6e7;
+            bottom: 10%;
+            right: 10%;
+            animation-delay: 1s;
+        }
+        
+        .circle3 {
+            width: 60px;
+            height: 60px;
+            background: #fff3a3;
+            top: 12%;
+            right: 18%;
+            animation-delay: 2s;
+        }
+        
+        .circle4 {
+            width: 100px;
+            height: 100px;
+            background: #b8f7d4;
+            bottom: 15%;
+            left: 12%;
+            animation-delay: 3s;
+        }
+        
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-18px);
+            }
         }
         /* Floating Background Particles */
         
@@ -106,10 +159,10 @@
             text-align: center;
             position: relative;
             overflow: hidden;
-            background: rgba(18, 7, 48, 0.75);
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(14px);
-            border: 2px solid rgba(124, 83, 255, 0.5);
-            box-shadow: 0 0 25px rgba(153, 51, 255, 0.5), 0 0 60px rgba(0, 153, 255, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
             animation: popupShow 1s ease;
         }
         
@@ -146,7 +199,7 @@
         /* Heading */
         
         .popup h2 {
-            color: white;
+            color: #1d3358;
             font-size: 2rem;
             line-height: 1.4;
             margin-bottom: 15px;
@@ -160,7 +213,7 @@
         }
         
         .sub-text {
-            color: #c9c9ff;
+            color: #666;
             font-size: 15px;
             margin-bottom: 30px;
         }
@@ -209,10 +262,10 @@
             border-radius: 30px;
             text-align: center;
             position: relative;
-            background: rgba(10, 6, 35, 0.82);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(15px);
-            border: 2px solid rgba(129, 92, 255, 0.5);
-            box-shadow: 0 0 25px rgba(146, 65, 255, 0.5), 0 0 70px rgba(0, 132, 255, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
             animation: fadeIn 1s ease;
         }
         
@@ -236,7 +289,7 @@
         }
         
         .cake-message {
-            color: #f3f3ff;
+            color: #333;
             font-size: 17px;
             line-height: 1.9;
             margin-bottom: 18px;
@@ -314,6 +367,12 @@
 </head>
 
 <body>
+
+    <!-- Floating background circles -->
+    <div class="circle circle1"></div>
+    <div class="circle circle2"></div>
+    <div class="circle circle3"></div>
+    <div class="circle circle4"></div>
 
     <!-- Floating Particles -->
 

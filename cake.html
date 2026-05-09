@@ -20,11 +20,64 @@
             font-family: 'Poppins', sans-serif;
             height: 100vh;
             overflow: hidden;
-            background: radial-gradient(circle at top, #3f2b96, #1f1147);
             display: flex;
             justify-content: center;
             align-items: center;
+            background: linear-gradient(135deg, #dcecff, #c7e0ff, #eaf4ff);
             position: relative;
+        }
+        /* Floating background circles */
+        
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.35;
+            animation: float 6s infinite ease-in-out;
+        }
+        
+        .circle1 {
+            width: 120px;
+            height: 120px;
+            background: #8ec5ff;
+            top: 8%;
+            left: 8%;
+        }
+        
+        .circle2 {
+            width: 80px;
+            height: 80px;
+            background: #ffd6e7;
+            bottom: 10%;
+            right: 10%;
+            animation-delay: 1s;
+        }
+        
+        .circle3 {
+            width: 60px;
+            height: 60px;
+            background: #fff3a3;
+            top: 12%;
+            right: 18%;
+            animation-delay: 2s;
+        }
+        
+        .circle4 {
+            width: 100px;
+            height: 100px;
+            background: #b8f7d4;
+            bottom: 15%;
+            left: 12%;
+            animation-delay: 3s;
+        }
+        
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-18px);
+            }
         }
         /* Background Glow */
         
@@ -276,6 +329,12 @@
 </head>
 
 <body>
+
+    <!-- Floating background circles -->
+    <div class="circle circle1"></div>
+    <div class="circle circle2"></div>
+    <div class="circle circle3"></div>
+    <div class="circle circle4"></div>
 
     <!-- Background Glow -->
     <div class="bg-glow"></div>
